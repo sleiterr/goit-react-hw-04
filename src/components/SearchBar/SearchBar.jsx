@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { useToast } from "react-toast-notification";
-import "./SearchBar.module.css";
+import toast from "react-hot-toast";
 
 const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
-  const { addToast } = useToast();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (query.trim() === "") {
-      addToast("Enter serach query", { appearance: "warning" });
+      toast.error("Enter search query");
       return;
     }
     onSubmit(query);

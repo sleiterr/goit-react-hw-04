@@ -30,14 +30,14 @@ const App = () => {
               query,
               page,
               per_page: 12,
-              client_id: "your_access_key_here", // Replace with your actual access key
+              client_id: "_lGR9de2G013uXrB-tkbQ23G6TzefCkYZ1st1VHA6-4",
             },
           }
         );
         setImages((prevImages) => [...prevImages, ...response.data.results]);
       } catch (error) {
         setError("Error fetching images");
-        notify("Error fetching images"); // Виклик сповіщення про помилку
+        notify("Error fetching images"); 
       } finally {
         setLoading(false);
       }
