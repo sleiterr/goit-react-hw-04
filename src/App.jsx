@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { ToastProvider } from "react-toast-notifications";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Додаємо стилі для Toastify
 import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
@@ -36,6 +37,7 @@ const App = () => {
         setImages((prevImages) => [...prevImages, ...response.data.results]);
       } catch (error) {
         setError("Error fetching images");
+        notify("Error fetching images"); // Виклик сповіщення про помилку
       } finally {
         setLoading(false);
       }
@@ -63,24 +65,25 @@ const App = () => {
     setSelectedImage(null);
   };
 
+  const notify = (message) => toast(message);
+
   return (
-    <ToastProvider>
-      <div className="App">
-        <SearchBar onSubmit={handleSearchSubmit} />
-        {error && <ErrorMessage message={error} />}
-        {loading ? (
-          <Loader />
-        ) : (
-          <>
-            <ImageGallery images={images} openModal={openModal} />
-            {images.length > 0 && <LoadMoreBtn onClick={loadMoreImages} />}
-          </>
-        )}
-        {selectedImage && (
-          <ImageModal image={selectedImage} onClose={closeModal} />
-        )}
-      </div>
-    </ToastProvider>
+    <div className="App">
+      <SearchBar onSubmit={handleSearchSubmit} />
+      {error && <ErrorMessage message={error} />}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <ImageGallery images={images} openModal={openModal} />
+          {images.length > 0 && <LoadMoreBtn onClick={loadMoreImages} />}
+        </>
+      )}
+      {selectedImage && (
+        <ImageModal image={selectedImage} onClose={closeModal} />
+      )}
+      <ToastContainer />
+    </div>
   );
 };
 
