@@ -1,13 +1,12 @@
-import 'react';
-import "./LoadMoreBtn.module.css";
+import "react";
+import styles from "./LoadMoreBtn.module.css";
 
 const LoadMoreBtn = ({ onClick }) => {
   return (
-    <button className='load-more-btn' onClick={onClick}>
+    <button className={styles.loadMoreBtn} onClick={onClick}>
       Load more
     </button>
   );
 };
 
 export default LoadMoreBtn;
-

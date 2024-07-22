@@ -1,0 +1,26 @@
+/* ImageModal.module.css */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Забезпечити, що немає прокрутки */
+  z-index: 1000; /* Переконатися, що overlay над іншими елементами */
+}
+
+
+
+.modal img {
+  max-width: 100%; /* Зображення масштабується до ширини модального вікна */
+  max-height: 80vh; /* Зображення масштабується до висоти модального вікна */
+  object-fit: contain; /* Зберігає співвідношення сторін */
+}
+
+.close {
+  display: none; /* Сховати хрестик */
+}

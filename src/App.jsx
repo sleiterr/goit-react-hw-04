@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Додаємо стилі для Toastify
+import "react-toastify/dist/ReactToastify.css"; 
 import SearchBar from "./components/SearchBar/SearchBar";
 import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
@@ -29,7 +29,7 @@ const App = () => {
             params: {
               query,
               page,
-              per_page: 12,
+              per_page: 15,
               client_id: "_lGR9de2G013uXrB-tkbQ23G6TzefCkYZ1st1VHA6-4",
             },
           }

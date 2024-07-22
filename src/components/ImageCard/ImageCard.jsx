@@ -1,5 +1,6 @@
+// ImageCard.jsx
 import 'react';
-import "./ImageCard.module.css";
+import styles from "./ImageCard.module.css";
 
 const ImageCard = ({ image, openModal }) => { 
   const handleClick = () => {
@@ -7,10 +8,8 @@ const ImageCard = ({ image, openModal }) => {
   };
 
   return (
-    <li className="image-card" onClick={handleClick}>
-      <div>
-        <img src={image.urls.small} alt={ image.alt_description} />
-      </div>
+    <li className={styles.imageCard} onClick={handleClick}>
+        <img src={image.urls.small} alt={image.alt_description} />
     </li>
   );
 

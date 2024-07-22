@@ -1,0 +1,18 @@
+.imageCard {
+  cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+}
+
+.imageCard img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.imageCard:hover {
+  transform: scale(1.05);
+}
+
