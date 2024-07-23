@@ -8,8 +8,12 @@ const ImageCard = ({ image, openModal }) => {
   };
 
   return (
-    <li className={styles.imageCard} onClick={handleClick}>
-        <img src={image.urls.small} alt={image.alt_description} />
+    <li className={styles.imageCard}>
+      <img
+        src={image.urls.small}
+        alt={image.alt_description}
+        onClick={handleClick}
+      />
     </li>
   );
 

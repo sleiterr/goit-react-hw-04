@@ -1,6 +1,9 @@
 import { useEffect } from "react";
-import ReactDOM from "react-dom";
+import ReactModal from "react-modal";
 import styles from "./ImageModal.module.css";
+
+// Обов'язково встановіть елемент для модального вікна
+ReactModal.setAppElement("#root");
 
 const ImageModal = ({ image, onClose }) => {
   useEffect(() => {
@@ -26,21 +29,20 @@ const ImageModal = ({ image, onClose }) => {
     }
   };
 
-  return ReactDOM.createPortal(
-    <div className={styles.overlay} onClick={handleClickOutside}>
-      <div className={styles.modal}>
-        <span className={styles.close} onClick={onClose}>
-          &times;
-        </span>
-        <img src={image.urls.regular} alt={image.alt_description} />
-        {/*
-        <p>{image.description || image.alt_description}</p>
-        <p>By: {image.user.name}</p>
-        <p>Likes: {image.likes}</p>
-         */}
-      </div>
-    </div>,
-    document.getElementById("modal-root")
+  return (
+    <ReactModal
+      isOpen={!!image}
+      onRequestClose={onClose}
+      className={styles.modal}
+      overlayClassName={styles.overlay}
+      onClick={handleClickOutside}
+    >
+      <img src={image.urls.regular} alt={image.alt_description} />
+      {/* Закоментуйте інформацію про зображення */}
+      {/* <p>{image.description || image.alt_description}</p>
+      <p>By: {image.user.name}</p>
+      <p>Likes: {image.likes}</p> */}
+    </ReactModal>
   );
 };
 
